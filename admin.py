@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from viewer.models import Individuals, Samples
+from mw_viewer.models import Individuals, Samples
 
 
 class IndividualsAdmin(admin.ModelAdmin):
