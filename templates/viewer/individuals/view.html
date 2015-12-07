@@ -1,0 +1,29 @@
+{% extends 'viewer/base.html' %}
+{% block content %}
+<div class="container">
+    <section class="mw-viewer-section">
+        <div class="row seq-text-center">
+            <h1 class="mw-viewer-header">Project Management</h1>
+        </div>
+    </section>
+    <section class="mw-viewer-section">
+        <div class="row">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th class="col-xs-2">Individual ID</th>
+                    <th class="col-xs-2">Gender</th>
+                    <th class="col-xs-4">Length</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for ind in individuals %}
+                <tr>
+                    <td>{{ ind.individual_id }}</td>
+                    <td>{{ ind.gender }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
