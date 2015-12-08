@@ -12,6 +12,11 @@ def mw_viewer(request):
     return render(request, 'viewer/mw_viewer_home.html')
 
 def individual_view(request):
-    ind = Individuals.objects.all()
-    context = { 'individuals' : ind }
-    return render(request, 'viewer/individuals/view.html', context)
+    ind = Individual.objects.all()
+    context = {'individual': ind}
+    return render(request, 'viewer/individuals/view_individual.html', context)
+
+def sample_view(request):
+    samp = Sample.objects.all()
+    context = {'sample': samp}
+    return render(request, 'viewer/samples/view_sample.html', context)

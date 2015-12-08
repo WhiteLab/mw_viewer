@@ -2,16 +2,18 @@ import django.utils.timezone
 from django.db import models
 
 
-class Individuals(models.Model):
+class Individual(models.Model):
     individual_id = models.CharField(max_length=10)
     gender = models.CharField(max_length=10)
+    def __unicode__(self):
+        return self.individual_id
 
 
-class Samples(models.Model):
+class Sample(models.Model):
     sample_id = models.CharField(max_length=20)
     date_obtained = models.DateField(default=django.utils.timezone.now)
     tissue = models.CharField(max_length=45)
-    individual = models.ForeignKey(Individuals)
+    individual = models.ForeignKey(Individual)
 
 
 class SampleAliquot(models.Model):
@@ -19,7 +21,7 @@ class SampleAliquot(models.Model):
     date = models.DateField(default=django.utils.timezone.now)
     technician = models.CharField(max_length=45)
     concentration = models.CharField(max_length=45)
-    sample = models.ForeignKey(Samples)
+    sample = models.ForeignKey(Sample)
 
 
 class Antibodies(models.Model):
@@ -45,7 +47,7 @@ class ExperimentDetails(models.Model):
     image_id = models.CharField(max_length=45)
     image = models.ImageField
     comments = models.TextField(max_length=250)
-    sample = models.ForeignKey(Samples)
+    sample = models.ForeignKey(Sample)
 
 
 class ExperimentResults(models.Model):

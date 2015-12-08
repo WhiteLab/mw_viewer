@@ -1,14 +1,14 @@
 from django.contrib import admin
 
-from mw_viewer.models import Individuals, Samples
+from models import Individual, Sample
 
 
-class IndividualsAdmin(admin.ModelAdmin):
-    model = Individuals
+class IndividualAdmin(admin.ModelAdmin):
+    model = Individual
     list_display = ('individual_id', 'gender')
+class SampleAdmin(admin.ModelAdmin):
+    model = Sample
+    list_display = ('sample_id', 'date_obtained', 'tissue', 'individual')
 
-class SamplesAdmin(admin.ModelAdmin):
-    model = Samples
-    list_display = ('sample_id', 'date_obtained')
-
-admin.site.register(Individuals, IndividualsAdmin)
+admin.site.register(Individual, IndividualAdmin)
+admin.site.register(Sample, SampleAdmin)
