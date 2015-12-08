@@ -9,4 +9,9 @@ from django.shortcuts import render
 from models import *
 # Create your views here.
 def mw_viewer(request):
-    return render(request,'mw_viewer/viewer/mw_viewer_home.html')
+    return render(request, 'viewer/mw_viewer_home.html')
+
+def individual_view(request):
+    ind = Individuals.objects.all()
+    context = { 'individuals' : ind }
+    return render(request, 'viewer/individuals/view.html', context)
