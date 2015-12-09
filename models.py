@@ -14,7 +14,8 @@ class Sample(models.Model):
     date_obtained = models.DateField(default=django.utils.timezone.now)
     tissue = models.CharField(max_length=45)
     individual = models.ForeignKey(Individual)
-
+    def __unicode__(self):
+        return self.sample_id
 
 class SampleAliquot(models.Model):
     sample_aliquot_id = models.CharField(max_length=20)
@@ -37,15 +38,15 @@ class AntibodyAliquot(models.Model):
     antibody = models.ForeignKey(Antibodies)
 
 
-class ExperimentDetails(models.Model):
+class ExperimentDetail(models.Model):
     date = models.DateField(default=django.utils.timezone.now)
     duration = models.CharField(max_length=45)
     pipetting = models.CharField(max_length=45)
     gels = models.CharField(max_length=45)
     electrophoresis = models.CharField(max_length=45)
     transfer = models.CharField(max_length=45)
-    image_id = models.CharField(max_length=45)
-    image = models.ImageField
+    image_id = models.CharField(max_length=45, default=None)
+    image = models.ImageField(default=None)
     comments = models.TextField(max_length=250)
     sample = models.ForeignKey(Sample)
 
@@ -62,6 +63,6 @@ class ExperimentResults(models.Model):
     nano_droplet_volume = models.FloatField(max_length=10)
     spot_problem = models.CharField(max_length=1)
     comments = models.TextField(max_length=250)
-    experiment = models.ForeignKey(ExperimentDetails)
+    experiment = models.ForeignKey(ExperimentDetail)
     antibody_aliquot = models.ForeignKey(AntibodyAliquot)
     sample = models.ForeignKey(SampleAliquot)

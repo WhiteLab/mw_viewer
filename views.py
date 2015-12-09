@@ -20,3 +20,8 @@ def sample_view(request):
     samp = Sample.objects.all()
     context = {'sample': samp}
     return render(request, 'viewer/samples/view_sample.html', context)
+
+def experiment_view(request):
+    exp = ExperimentDetail.objects.all()
+    context = {'experiment': exp}
+    return render(request, 'viewer/experiments/view_experiment.html', context)

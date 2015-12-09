@@ -1,0 +1,45 @@
+{% extends 'viewer/base.html' %}
+{% block content %}
+<div class="container">
+    <section class="mw-viewer-section">
+        <div class="row mw-viewer-text-center">
+            <h1 class="mw-viewer-header">Experiments</h1>
+        </div>
+    </section>
+    <section class="mw-viewer-section">
+        <div class="row">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th class="col-xs-1">Date</th>
+                    <th class="col-xs-1">Duration</th>
+                    <th class="col-xs-1">Pipetting</th>
+                    <th class="col-xs-1">Gels</th>
+                    <th class="col-xs-1">Electrophoresis</th>
+                    <th class="col-xs-1">Transfer</th>
+                    <th class="col-xs-2">Image ID</th>
+                    <th class="col-xs-2">Comments</th>
+                    <th class="col-xs-1">Sample</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for exp in experiment %}
+                <tr>
+                    <td>{{ exp.date }}</td>
+                    <td>{{ exp.duration }}</td>
+                    <td>{{ exp.pipetting }}</td>
+                    <td>{{ exp.gels }}</td>
+                    <td>{{ exp.electrophoresis }}</td>
+                    <td>{{ exp.transfer }}</td>
+                    <td>{{ exp.image_id }}</td>
+                    <!--<td>{{ exp.image }}</td>-->
+                    <td>{{ exp.comments }}</td>
+                    <td>{{ exp.sample }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+{% endblock %}
