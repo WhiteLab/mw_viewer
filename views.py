@@ -16,6 +16,16 @@ def individual_view(request):
     context = {'individual': ind}
     return render(request, 'viewer/individuals/view_individual.html', context)
 
+def individual_submit(request):
+    ind = Individual.objects.all()
+    context = {'individual': ind}
+    return render(request, 'viewer/individuals/individual_submit.html', context)
+
+def individual_upload(request):
+    # ind = Individual.objects.all()
+    # context = {'individual': ind}
+    return render(request, 'viewer/individuals/individual_submit.html')
+
 def sample_view(request):
     samp = Sample.objects.all()
     context = {'sample': samp}

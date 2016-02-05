@@ -8,22 +8,31 @@
     </section>
     <section class="mw-viewer-section">
         <div class="row">
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th class="col-xs-2">Individual ID</th>
-                    <th class="col-xs-4">Gender</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for ind in individual %}
-                <tr>
-                    <td>{{ ind.individual_id }}</td>
-                    <td>{{ ind.gender }}</td>
-                </tr>
-                {% endfor %}
-                </tbody>
-            </table>
+            <a href="submit">
+                <button class="btn btn-primary btn-sm" style="margin-bottom:15px">
+                    <span class="fa fa-plus"></span>&nbsp;&nbsp;Add Individual/Sample
+                </button>
+            </a>
+        </div>
+        <div class="row">
+            <div class="row">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th class="col-xs-2">Individual ID</th>
+                        <th class="col-xs-4">Gender</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for ind in individual %}
+                    <tr>
+                        <td>{{ ind.individual_id }}</td>
+                        <td>{{ ind.gender }}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </section>
 </div>

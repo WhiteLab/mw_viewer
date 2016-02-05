@@ -6,7 +6,9 @@ import views
 
 urlpatterns = patterns('',
                        url(r'^viewer/mw_viewer', views.mw_viewer, name='home page'),
-                       url(r'^viewer/individuals', views.individual_view, name='view individuals'),
+                       url(r'^viewer/individuals/$', views.individual_view, name='view individuals'),
+                       url(r'^viewer/individuals/submit/$', views.individual_submit, name='submit individuals'),
+                       url(r'^viewer/individuals/upload/$', views.individual_upload, name='upload individuals'),
                        url(r'^viewer/samples', views.sample_view, name='view samples'),
                        url(r'^viewer/experiments', views.experiment_view, name='view experiments')
                        ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
